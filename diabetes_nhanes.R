@@ -1,6 +1,5 @@
-getwd()
 setwd("/Users/ilzeabersone/Desktop/Edu/HOPE 2019/Semester 1 - Fall 2019/PHCO_0504_Introduction_to_Biostatistics/Diabetes Data Analysis Project")
-getwd()
+
 
 diabetes <- read.csv("Week_3_NHANES_diabetes.csv")
 
