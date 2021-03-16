@@ -82,7 +82,7 @@
           legend.title = element_text(size = 8, colour = "#565554"),
           legend.text = element_text(size = 8, colour = "#565554")))
 
-# 5- density plot: waiist circumference for those that have and don't have DM diagnosis 
+# 5- density plot: waist circumference for those that have and don't have DM diagnosis 
 (waist_dm <- ggplot(diabetes, 
                     aes(x = Waist_Circumference, 
                         fill = DM_or_PreDM)) +
