@@ -52,6 +52,7 @@ To use this code, use the included `NHANES_diabetes_2009-10.csv` file.
 
 The code uses a subset of the original dataset to only include variables of interest. 
 
+run `data_prep.r` file before working with other ones
 
 #### Output: 
 
