@@ -2,6 +2,7 @@ setwd("/Users/ilzeabersone/Desktop/Edu/HOPE 2019/Semester 1 - Fall 2019/PHCO_050
 
 
 diabetes <- read.csv("Week_3_NHANES_diabetes.csv")
+view(diabetes)
 
 install.packages("dplyr")
 library(dplyr)
