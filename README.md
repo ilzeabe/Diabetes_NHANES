@@ -1,19 +1,3 @@
----
-title: "diabetes.nhanes.readme"
-author: "Ilze"
-date: "3/16/2021"
-output: 
-  md_document:
-     variant: markdown_github
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(rmarkdown)
-library(tidyverse)
-library(pander)
-```
-
 
 |title    | author                     | date         | output        |
 |:-------:|:--------------------------:|:------------:|:-------------:|
