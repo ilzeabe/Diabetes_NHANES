@@ -27,7 +27,7 @@ chisq.test(table(diabetes$bmi_cat, diabetes$DM_or_PreDM)) %>% pander
 chisq.test(table(diabetes$a1c_cat, diabetes$DM_or_PreDM)) %>% pander
 
 # -----------------------------------------------------------------
-# ANOVA test for continuous variables
+# ANOVA test for continuous + categorical variables
 # 1- BMI and SES
 bmi_SES <- aov(BMI ~ income_cat, data=diabetes)
 summary(bmi_SES)
@@ -36,36 +36,38 @@ summary(bmi_SES)
 a1c_SES <- aov(a1c ~ income_cat, data=diabetes)
 summary(a1c_SES)
 
-# 3- BMI and DM dagnosis
+# 3- BMI and ethnicity
+bmi_ethnic <- aov(BMI ~ ethnicity, data=diabetes)
+summary(bmi_ethnic)
+
+# 4- % a1c and ethnicity
+a1c_ethnic <- aov(a1c ~ ethnicity, data=diabetes)
+summary(a1c_ethnic)
+
+# -----------------------------------------------------------------
+# t-test for continuous + biniary variables
+# 1- BMI and DM dagnosis
 library(broom)
 t_bmi_dm <- t.test(diabetes$BMI ~ diabetes$DM_or_PreDM, p.adj = "bonf") 
 (t_bmi_dm_df <- tidy(t_bmi_dm))
 
-# 4- % a1c and DM dagnosis
+# 2- % a1c and DM dagnosis
 t_a1c_dm <- t.test(diabetes$a1c ~ diabetes$dm_predm, p.adj = "bonf") 
 (t_a1c_dm_df <- tidy(t_a1c_dm))
 
-# 5- BMI and gender
+# 3- BMI and gender
 t_bmi_gender <- t.test(diabetes$BMI ~ diabetes$Gender, p.adj = "bonf") 
 (t_bmi_gender_df <- tidy(t_bmi_gender))
 
-# 6- % a1c and gender
+# 4- % a1c and gender
 t_a1c_gender <- t.test(diabetes$a1c ~ diabetes$Gender, p.adj = "bonf") 
 (t_a1c_gender_df <- tidy(t_a1c_gender))
 
-# 7- BMI and ethnicity
-bmi_ethnic <- aov(BMI ~ ethnicity, data=diabetes)
-summary(bmi_ethnic)
-
-# 8- % a1c and ethnicity
-a1c_ethnic <- aov(a1c ~ ethnicity, data=diabetes)
-summary(a1c_ethnic)
-
-# 9- BMI and on/off medication
+# 5- BMI and on/off medication
 t_bmi_meds <- t.test(diabetes$BMI ~ diabetes$meds, p.adj = "bonf") 
 (t_bmi_meds_df <- tidy(t_bmi_meds))
 
-# 10- % a1c and on/off medication
+# 6- % a1c and on/off medication
 t_a1c_meds <- t.test(diabetes$a1c ~ diabetes$meds, p.adj = "bonf") 
 (t_a1c_meds_df <- tidy(t_a1c_meds))
 
