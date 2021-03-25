@@ -1,8 +1,12 @@
 # load libraries:
 library(tidyverse) 
+library(rmarkdown)
 
 # import dataset:
 diabetes_raw <- read.csv("NHANES_diabetes_2009-10.csv", na.strings="")
+
+# create rmarkdown file: run this when rmarkdown is completed
+rmarkdown::render("diabetes_nhanes.Rmd", html_document())
 
 ### tidy data:
 # 1- drop unnecessaary columns:
@@ -14,6 +18,9 @@ diabetes <- diabetes %>%
     meds = case_when(
       Meds == 'TRUE' ~ 'yes',
       Meds == 'FALSE' ~ 'no'),
+    dm_predm = case_when(
+      DM_or_PreDM == 'TRUE' ~  'yes',
+      DM_or_PreDM == 'FALSE' ~ 'no'),
     ethnicity = case_when(
       Ethnicity == 'Non-HispanicWhite' ~ 'white',
       Ethnicity == 'Non-HispanicBlack' ~ 'black',
@@ -37,8 +44,12 @@ diabetes <- diabetes %>%
         Family_Income == '>=100000' ~ '55000+'),
     a1c_cat = case_when(
       a1c < 5.7 ~ 'normal',
-      a1c >= 5.7 & 
-        a1c <= 6.5 ~ 'pre-diabetic',
+      a1c >= 5.7 & a1c <= 6.5 ~ 'pre-diabetic',
       a1c  > 6.5 ~ 'diabetic')
+    bmi_cat = case_when(
+      BMI < 18.5 ~ 'underweight',
+      BMI >= 18.5 & BMI < 25 ~ 'normal',
+      BMI >= 25 & BMI < 30 ~ 'overweight',
+      BMI >= 30 ~ 'obese')
   )
 
