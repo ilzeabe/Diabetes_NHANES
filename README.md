@@ -45,10 +45,11 @@ To use this code, use the included `NHANES_diabetes_2009-10.csv` file.
   
 #### Running the code:
 
-'install.packages("tidyverse")'  
-
-'tidyverse': used for data wrangling  
-'ggplot2': used for data visualization, included in 'tidyverse', so there is no need to load it separately.  
+Packages used:
+'tidyverse' --> use for data wrangling (includes 'ggplot2' used for visualizations)
+'rmarkdown' --> use for creading the .rmd file
+'janitor' --> use for creating the summary tables
+'broom' --> use for creating neat t-test output
 
 The code uses a subset of the original dataset to only include variables of interest. 
 
