@@ -83,6 +83,9 @@ diabetes_lm <- dummy_cols(diabetes, select_columns = c('Gender',
                                                        'a1c_cat',
                                                        'bmi_cat'))
 
+# export as .csv file
+write.csv(diabetes_lm,"diabetes_lm.csv", row.names = FALSE)
+
 # 2. list all varaibles in dummy dataset      
 ls(diabetes_lm)
 
