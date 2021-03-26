@@ -46,10 +46,11 @@ To use this code, use the included `NHANES_diabetes_2009-10.csv` file.
 #### Running the code:
 
 Packages used:  
-'tidyverse' --> use for data wrangling (includes 'ggplot2' used for visualizations)  
-'rmarkdown' --> use for creading the .rmd file  
-'janitor' --> use for creating the summary tables  
-'broom' --> use for creating neat t-test output  
+`tidyverse` --> use for data wrangling (includes 'ggplot2' used for visualizations)  
+`rmarkdown` --> use for creading the .rmd file  
+`janitor` --> use for creating the summary tables  
+`broom` --> use for creating neat t-test output 
+`kableExtra` --> use for table formatting in .Rmd
 
 The code uses a subset of the original dataset to only include variables of interest. 
 
